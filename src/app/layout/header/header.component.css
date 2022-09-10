@@ -1,10 +1,19 @@
 .header {
   text-align: center;
-  background: #33B5E5;
+  background: #33b5e5;
   color: #fff;
-  padding: 12px;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
+  color: #ffffff;
+  margin-right: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+h2 {
   color: #ffffff;
 }

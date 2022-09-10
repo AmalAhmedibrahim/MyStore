@@ -1,0 +1,36 @@
+.product-image {
+  max-width: 20rem;
+  min-width: 20rem;
+  max-height: 23rem;
+  min-height: 23rem;
+  padding: 2rem;
+  border: 1px solid #33b5e5;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25rem;
+  height: 35rem;
+  margin: 2rem 0;
+}
+
+.add-btn {
+  background-color: #33b5e5;
+  color: #ffffff;
+  border: none;
+  height: 2rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.price {
+  font-size: 16px;
+  margin: 0.5rem 0;
+}
