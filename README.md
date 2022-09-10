@@ -9,4 +9,4 @@ MyStore is Angular application that allows users to view a list of available pro
 - `npm install`
 - `ng serve`
 
-![Home](https://github.com/AmalAhmedibrahim/MyStore/blob/master/src/assets/shoppingflow.gif)
+![Home](./src/assets/shoppingflow.gif)
