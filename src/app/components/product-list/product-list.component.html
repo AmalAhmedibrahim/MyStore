@@ -1,0 +1,8 @@
+<div class="product-container">
+  <ng-container *ngFor="let product of products">
+    <app-product-item
+      [product]="product"
+      (onAddClicked)="onAddClicked($event)"
+    ></app-product-item>
+  </ng-container>
+</div>

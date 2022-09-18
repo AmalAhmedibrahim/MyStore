@@ -1,7 +1,15 @@
 <div class="product-container">
-  <img [src]="product.image" class="product-image" />
+  <img
+    [src]="product.image"
+    class="product-image"
+    (click)="getProductDetails(product)"
+  />
   <span class="title">{{ product.title | truncate: 28 }}</span>
   <span class="price">{{ product.price }} $</span>
   <app-select-list (option)="onOptionChange($event)"></app-select-list>
-  <button class="add-btn" (click)="onAddClicked()">Add to cart</button>
+  <app-button
+    class="add-btn"
+    (onClick)="onAddClicked()"
+    title="Add to cart"
+  ></app-button>
 </div>

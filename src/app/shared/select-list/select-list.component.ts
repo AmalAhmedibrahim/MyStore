@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-select-list',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SelectListComponent implements OnInit {
   @Output() option = new EventEmitter<number>();
+  @Input() value: number;
   options: number[] = [];
 
   constructor() {}

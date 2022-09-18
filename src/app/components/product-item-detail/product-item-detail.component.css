@@ -4,7 +4,7 @@ img {
 }
 
 .select-input {
-  width: 108px; 
+  width: 108px;
   margin-bottom: 8px;
 }
 
@@ -16,10 +16,17 @@ img {
 }
 
 .detail-item {
+  height: 15rem;
   margin-left: 128px;
   margin-right: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .back-link {
-  margin-top: 8px;
+  text-decoration: none;
+}
+.back-icon {
+  margin-right: 5px;
 }
