@@ -1,3 +1,4 @@
+import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/product.interface';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -8,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  @Input() cartProducts: Product[] = [];
+  cartProducts: Product[] = [];
   @Output() done = new EventEmitter();
   orderDone = false;
   orderDetails = {
@@ -19,9 +20,10 @@ export class CartComponent implements OnInit {
   total = 0;
   submit = false;
 
-  constructor() {}
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
+    this.cartProducts = this.productsService.getCartProducts();
     this.total = this.cartProducts.reduce((sum, current) => {
       return sum + current.price * current.quantity;
     }, 0);
@@ -34,7 +36,10 @@ export class CartComponent implements OnInit {
     }
   }
   removeFromCart(product: Product): void {
-    this.cartProducts = this.cartProducts.filter((p) => p.id !== product.id);
+    this.cartProducts = this.productsService.removeProductsFromCart(product);
+    this.total = this.cartProducts.reduce((sum, current) => {
+      return sum + current.price * current.quantity;
+    }, 0);
     alert('Product removed from the cart');
   }
   onOptionChange(value: number, product: Product): void {
@@ -47,5 +52,8 @@ export class CartComponent implements OnInit {
     this.total = this.cartProducts.reduce((sum, current) => {
       return sum + current.price * current.quantity;
     }, 0);
+  }
+  nameChanged(name): void {
+    this.orderDetails.name = name;
   }
 }
