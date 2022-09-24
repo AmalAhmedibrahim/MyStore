@@ -15,7 +15,6 @@ export class AppComponent {
   constructor() {}
 
   addToCart(product: Product): void {
-    debugger;
     if (this.cartProducts.findIndex((p) => p.id === product.id) === -1) {
       this.cartProducts.push(product);
     } else {

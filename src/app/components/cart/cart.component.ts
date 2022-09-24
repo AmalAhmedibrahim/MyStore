@@ -28,7 +28,6 @@ export class CartComponent implements OnInit {
   }
 
   submitOrder(orderForm: NgForm): void {
-    debugger;
     this.submit = true;
     if (orderForm.valid) {
       this.orderDone = true;
@@ -46,7 +45,6 @@ export class CartComponent implements OnInit {
     this.cartProducts[index] = product;
 
     this.total = this.cartProducts.reduce((sum, current) => {
-      debugger;
       return sum + current.price * current.quantity;
     }, 0);
   }

@@ -17,7 +17,6 @@ export class SelectListComponent implements OnInit {
   }
 
   onSelect(value: number): void {
-    debugger;
     this.option.emit(+value);
   }
 }

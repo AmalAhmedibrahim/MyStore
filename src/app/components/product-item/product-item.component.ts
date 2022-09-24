@@ -17,13 +17,11 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onOptionChange(value: number): void {
-    debugger;
     this.product.quantity = value;
   }
 
   onAddClicked(): void {
     alert('Added to cart');
-    debugger;
     this.addToCart.emit(this.product);
   }
 }
