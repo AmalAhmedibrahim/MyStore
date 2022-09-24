@@ -21,6 +21,8 @@ img {
 .form {
   margin-bottom: 12px;
   margin-top: 64px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-input {
@@ -57,4 +59,17 @@ img {
 
 .info {
   color: gray;
+}
+
+.link {
+  color: #027ffe;
+}
+
+.empty-cart {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  color: red;
 }

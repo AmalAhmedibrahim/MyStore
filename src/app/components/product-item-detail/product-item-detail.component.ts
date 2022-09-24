@@ -11,19 +11,17 @@ import { pipe } from 'rxjs';
 })
 export class ProductItemDetailComponent implements OnInit {
   @Output() addToCart = new EventEmitter<Product>();
-  product: Product;
+  @Input() product: Product;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private productsService: ProductsService
-  ) {
+  constructor() {
     this.product = {
-      id: '',
+      id: 0,
       title: '',
       price: 0,
       description: '',
       category: '',
       image: '',
+      quantity: 1,
       rating: {
         rate: 0,
         count: 0,
@@ -31,15 +29,10 @@ export class ProductItemDetailComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params.id;
-    this.productsService.getProducts().subscribe((productsRes) => {
-      this.product = productsRes.find((p) => +p.id === +id);
-    });
-  }
+  ngOnInit(): void {}
 
   onAddClicked(): void {
     alert('Added to cart');
-    this.productsService.addProductToCart(this.product);
+    this.addToCart.emit(this.product);
   }
 }

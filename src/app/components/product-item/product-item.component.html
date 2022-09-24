@@ -2,11 +2,14 @@
   <img
     [src]="product.image"
     class="product-image"
-    (click)="getProductDetails(product)"
+    (click)="goToDetails.emit()"
   />
   <span class="title">{{ product.title | truncate: 28 }}</span>
   <span class="price">{{ product.price }} $</span>
-  <app-select-list (option)="onOptionChange($event)"></app-select-list>
+  <app-select-list
+    (option)="onOptionChange($event)"
+    [value]="product.quantity"
+  ></app-select-list>
   <app-button
     class="add-btn"
     (onClick)="onAddClicked()"

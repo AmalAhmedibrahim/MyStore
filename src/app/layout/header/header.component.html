@@ -1,7 +1,11 @@
 <div class="header">
   <h2>My Store</h2>
   <div>
-    <a href="/products"> <i class="fa-solid fa-list"></i> Product List</a>
-    <a href="/cart"> <i class="fa-solid fa-cart-shopping"></i> My Cart</a>
+    <a (click)="goToProducts.emit()">
+      <i class="fa-solid fa-list"></i> Product List</a
+    >
+    <a (click)="goToCart.emit()">
+      <i class="fa-solid fa-cart-shopping"></i> My Cart</a
+    >
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.interface';
 import { ProductsService } from 'src/app/services/products.service';
@@ -9,11 +9,12 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
+  @Output() addToCart = new EventEmitter<Product>();
+  @Output() goToDetails = new EventEmitter<Product>();
+
   products: Product[];
-  constructor(
-    private productsService: ProductsService,
-    private router: Router
-  ) {}
+  ProductDetails: Product;
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe((productsRes) => {
@@ -22,6 +23,6 @@ export class ProductListComponent implements OnInit {
   }
 
   onAddClicked(product: Product): void {
-    this.productsService.addProductToCart(product);
+    this.addToCart.emit(product);
   }
 }

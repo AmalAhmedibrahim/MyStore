@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,12 +8,13 @@ import { Router } from '@angular/router';
 })
 export class ConfirmationComponent implements OnInit {
   @Input() name = '';
-  amount = 0;
+  @Input() amount = 0;
+  @Output() back = new EventEmitter<void>();
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   onClickBack(): void {
-    this.router.navigate([`/products`]);
+    this.back.emit();
   }
 }

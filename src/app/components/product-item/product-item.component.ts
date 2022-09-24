@@ -10,23 +10,20 @@ import { Product } from 'src/app/models/product.interface';
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() addToCart = new EventEmitter<Product>();
+  @Output() goToDetails = new EventEmitter();
   quantity = 1;
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   onOptionChange(value: number): void {
-    this.quantity = value;
+    debugger;
+    this.product.quantity = value;
   }
-  getProductDetails(product: Product): void {
-    this.router.navigate(['/product', product.id], {
-      state: {
-        Product: product,
-      },
-    });
-  }
+
   onAddClicked(): void {
     alert('Added to cart');
+    debugger;
     this.addToCart.emit(this.product);
   }
 }

@@ -2,7 +2,8 @@
   <ng-container *ngFor="let product of products">
     <app-product-item
       [product]="product"
-      (onAddClicked)="onAddClicked($event)"
+      (addToCart)="onAddClicked($event)"
+      (goToDetails)="goToDetails.emit(product)"
     ></app-product-item>
   </ng-container>
 </div>
