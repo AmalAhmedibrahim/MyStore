@@ -1,9 +1,11 @@
 <div class="detail-container">
   <div>
-    <img [src]="product.image" />
+    <img [src]="product.url" />
   </div>
   <div class="detail-item">
-    <h2>{{ product.title }}</h2>
+    <h1>{{ product.name }}</h1>
+    <h4 class="desc">{{ product.description }}</h4>
+
     <span>{{ product.price }}</span>
     <app-select-list></app-select-list>
     <app-button title="Add to cart" (onClick)="onAddClicked()"></app-button>

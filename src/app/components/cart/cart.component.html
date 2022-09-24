@@ -2,9 +2,9 @@
   <div class="cart-panel">
     <ul class="cart-container">
       <li *ngFor="let product of cartProducts" class="cart-item">
-        <img [src]="product.image" />
+        <img [src]="product.url" />
         <div class="cart-item-details">
-          <h4>{{ product.title | truncate: 28 }}</h4>
+          <h4>{{ product.name | truncate: 28 }}</h4>
           <span>{{ product.price }} $</span>
           <app-select-list
             [value]="product.quantity"
@@ -32,6 +32,7 @@
           id="full-name"
           required
           [(ngModel)]="orderDetails.name"
+          (ngModelChange)="nameChanged($event)"
         />
         <div *ngIf="submit && orderForm.controls.fullName.errors" class="error">
           Full name is required
@@ -55,7 +56,7 @@
       <div class="form-input">
         <label>Credit Card Number</label>
         <input
-          type="text"
+          type="number"
           placeholder="(16-digit number)"
           name="card"
           id="card"

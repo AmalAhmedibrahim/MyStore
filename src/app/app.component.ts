@@ -1,3 +1,4 @@
+import { ProductsService } from 'src/app/services/products.service';
 import { Component } from '@angular/core';
 import { Product } from './models/product.interface';
 
@@ -12,15 +13,10 @@ export class AppComponent {
   cartProducts: Product[] = [];
   showDetails = false;
   productDetails: Product;
-  constructor() {}
+  constructor(private productsService: ProductsService) {}
 
   addToCart(product: Product): void {
-    if (this.cartProducts.findIndex((p) => p.id === product.id) === -1) {
-      this.cartProducts.push(product);
-    } else {
-      const index = this.cartProducts.findIndex((p) => p.id === product.id);
-      this.productDetails[index] = product;
-    }
+    this.productsService.addProductTocart(product);
   }
 
   goToDetails(product: Product): void {

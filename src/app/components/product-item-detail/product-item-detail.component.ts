@@ -16,11 +16,11 @@ export class ProductItemDetailComponent implements OnInit {
   constructor() {
     this.product = {
       id: 0,
-      title: '',
+      name: '',
       price: 0,
       description: '',
       category: '',
-      image: '',
+      url: '',
       quantity: 1,
       rating: {
         rate: 0,

@@ -7,11 +7,7 @@
   (addToCart)="addToCart($event)"
   (goToDetails)="goToDetails($event)"
 ></app-product-list>
-<app-cart
-  *ngIf="showCart && !showDetails"
-  [cartProducts]="cartProducts"
-  (done)="showCart = false"
-></app-cart>
+<app-cart *ngIf="showCart && !showDetails" (done)="showCart = false"></app-cart>
 
 <app-product-item-detail
   *ngIf="showDetails && !showCart"

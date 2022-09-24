@@ -1,10 +1,6 @@
 <div class="product-container">
-  <img
-    [src]="product.image"
-    class="product-image"
-    (click)="goToDetails.emit()"
-  />
-  <span class="title">{{ product.title | truncate: 28 }}</span>
+  <img [src]="product.url" class="product-image" (click)="goToDetails.emit()" />
+  <span class="title">{{ product.name | truncate: 28 }}</span>
   <span class="price">{{ product.price }} $</span>
   <app-select-list
     (option)="onOptionChange($event)"
