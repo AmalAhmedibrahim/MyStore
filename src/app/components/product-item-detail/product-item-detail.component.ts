@@ -12,6 +12,7 @@ import { pipe } from 'rxjs';
 export class ProductItemDetailComponent implements OnInit {
   @Output() addToCart = new EventEmitter<Product>();
   @Input() product: Product;
+  @Output() back = new EventEmitter();
 
   constructor() {
     this.product = {
@@ -30,6 +31,10 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onOptionChange(value: number): void {
+    this.product.quantity = value;
+  }
 
   onAddClicked(): void {
     alert('Added to cart');

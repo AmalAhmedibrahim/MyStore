@@ -1,5 +1,5 @@
 <app-header
-  (goToCart)="this.showCart = true"
+  (goToCart)="this.showCart = true; showDetails = false"
   (goToProducts)="this.showCart = false"
 ></app-header>
 <app-product-list
@@ -13,5 +13,6 @@
   *ngIf="showDetails && !showCart"
   [product]="productDetails"
   (addToCart)="addToCart($event)"
+  (back)="showDetails = false"
 >
 </app-product-item-detail>

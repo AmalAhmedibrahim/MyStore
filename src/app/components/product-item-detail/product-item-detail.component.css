@@ -26,6 +26,7 @@ img {
 
 .back-link {
   text-decoration: none;
+  cursor: pointer;
 }
 .back-icon {
   margin-right: 5px;

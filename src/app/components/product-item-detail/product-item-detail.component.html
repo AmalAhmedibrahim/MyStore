@@ -7,9 +7,9 @@
     <h4 class="desc">{{ product.description }}</h4>
 
     <span>{{ product.price }}</span>
-    <app-select-list></app-select-list>
+    <app-select-list (option)="onOptionChange($event)"></app-select-list>
     <app-button title="Add to cart" (onClick)="onAddClicked()"></app-button>
-    <a class="back-link">
+    <a class="back-link" (click)="back.emit()">
       <i class="fa-sharp fa-solid fa-arrow-left back-icon"></i>
       Back to product list
     </a>
