@@ -1,0 +1,15 @@
+.btn {
+  background-color: #33b5e5;
+  color: #ffffff;
+  border: none;
+  height: 2.5rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: #027ffe;
+}

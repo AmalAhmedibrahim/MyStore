@@ -1,0 +1,87 @@
+<div *ngIf="!orderDone">
+  <div class="cart-panel">
+    <ul class="cart-container">
+      <li *ngFor="let product of cartProducts" class="cart-item">
+        <img [src]="product.image" />
+        <div class="cart-item-details">
+          <h4>{{ product.title | truncate: 28 }}</h4>
+          <span>{{ product.price }} $</span>
+          <app-select-list
+            [value]="product.quantity"
+            (option)="onOptionChange($event, product)"
+          ></app-select-list>
+          <a (click)="removeFromCart(product)" class="link">Remove from cart</a>
+        </div>
+      </li>
+      <h4 *ngIf="cartProducts.length > 0">Total: ${{ total | number }}</h4>
+    </ul>
+
+    <form
+      class="form"
+      *ngIf="cartProducts.length > 0"
+      #orderForm="ngForm"
+      (ngSubmit)="submitOrder(orderForm)"
+    >
+      <div class="form-input">
+        <label>Full Name</label>
+        <input
+          type="text"
+          placeholder="(minimum 3 characters)"
+          name="fullName"
+          class="form-control"
+          id="full-name"
+          required
+          [(ngModel)]="orderDetails.name"
+        />
+        <div *ngIf="submit && orderForm.controls.fullName.errors" class="error">
+          Full name is required
+        </div>
+      </div>
+      <div class="form-input">
+        <label>Address</label>
+        <input
+          type="text"
+          placeholder="(minimum 6 characters)"
+          name="address"
+          class="form-control"
+          id="address"
+          [(ngModel)]="orderDetails.address"
+          required
+        />
+        <div *ngIf="submit && orderForm.controls.fullName.errors" class="error">
+          Address is required
+        </div>
+      </div>
+      <div class="form-input">
+        <label>Credit Card Number</label>
+        <input
+          type="text"
+          placeholder="(16-digit number)"
+          name="card"
+          id="card"
+          class="form-control"
+          [(ngModel)]="orderDetails.card"
+          required
+        />
+      </div>
+      <div *ngIf="submit && orderForm.controls.fullName.errors" class="error">
+        Credit Card is required
+      </div>
+      <span class="info"
+        >we`ll never share your payment data with anyone else</span
+      >
+      <app-button title="Submit" type="Submit"></app-button>
+    </form>
+  </div>
+
+  <h3 *ngIf="cartProducts.length == 0" class="empty-cart">
+    Cart Is Empty add items to your Cart
+  </h3>
+</div>
+
+<app-confirmation
+  *ngIf="orderDone"
+  [name]="orderDetails.name"
+  [amount]="total"
+  (back)="done.emit()"
+></app-confirmation>

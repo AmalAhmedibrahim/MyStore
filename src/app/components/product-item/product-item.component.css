@@ -6,6 +6,9 @@
   padding: 2rem;
   border: 1px solid #33b5e5;
 }
+.product-image:hover {
+  cursor: pointer;
+}
 
 .product-container {
   display: flex;
@@ -14,15 +17,6 @@
   width: 25rem;
   height: 35rem;
   margin: 2rem 0;
-}
-
-.add-btn {
-  background-color: #33b5e5;
-  color: #ffffff;
-  border: none;
-  height: 2rem;
-  border-radius: 4px;
-  margin-top: 1rem;
 }
 
 .title {

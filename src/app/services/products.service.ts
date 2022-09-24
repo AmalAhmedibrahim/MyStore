@@ -1,7 +1,7 @@
 import { Product } from './../models/product.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,61 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>('https://fakestoreapi.com/products');
+    return of([
+      {
+        id: 1,
+        title: 'Book',
+        price: 9.99,
+        quantity: 1,
+        image:
+          'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+        description: 'You can read it!',
+      },
+      {
+        id: 2,
+        title: 'Headphones',
+        price: 249.99,
+        quantity: 1,
+        image:
+          'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+        description: 'Listen to stuff!',
+      },
+      {
+        id: 3,
+        title: 'Backpack',
+        price: 79.99,
+        quantity: 1,
+        image:
+          'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+        description: 'Carry things around town!',
+      },
+      {
+        id: 4,
+        title: 'Glasses',
+        quantity: 1,
+        price: 129.99,
+        image:
+          'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+        description: 'Now you can see!',
+      },
+      {
+        id: 5,
+        title: 'Cup',
+        price: 4.99,
+        quantity: 1,
+        image:
+          'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+        description: 'Drink anything with it!',
+      },
+      {
+        id: 6,
+        title: 'Shirt',
+        price: 29.99,
+        quantity: 1,
+        image:
+          'https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80',
+        description: 'Wear it with style!',
+      },
+    ]);
   }
 }

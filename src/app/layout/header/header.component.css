@@ -12,6 +12,7 @@ a {
   margin-right: 2rem;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
 }
 
 h2 {

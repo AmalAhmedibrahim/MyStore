@@ -1,0 +1,15 @@
+<div class="detail-container">
+  <div>
+    <img [src]="product.image" />
+  </div>
+  <div class="detail-item">
+    <h2>{{ product.title }}</h2>
+    <span>{{ product.price }}</span>
+    <app-select-list></app-select-list>
+    <app-button title="Add to cart" (onClick)="onAddClicked()"></app-button>
+    <a class="back-link">
+      <i class="fa-sharp fa-solid fa-arrow-left back-icon"></i>
+      Back to product list
+    </a>
+  </div>
+</div>

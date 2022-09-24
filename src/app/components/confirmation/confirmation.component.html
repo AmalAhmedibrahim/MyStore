@@ -1,0 +1,16 @@
+<div class="confirmation-container">
+  <div class="confirmation-item">
+    <h1 class="confirmation-header">Success!</h1>
+    <div>
+      Thank You,<span>{{ name }}</span>
+    </div>
+    <div>
+      Your <span>{{ amount }} order is confirmed!</span>
+    </div>
+    <div>please allow 1-3 business day(s) for shipping</div>
+  </div>
+  <app-button
+    title="Back to product list"
+    (onClick)="onClickBack()"
+  ></app-button>
+</div>

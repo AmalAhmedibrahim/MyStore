@@ -1,2 +1,21 @@
-<app-header></app-header>
-<app-product-list></app-product-list>
+<app-header
+  (goToCart)="this.showCart = true"
+  (goToProducts)="this.showCart = false"
+></app-header>
+<app-product-list
+  *ngIf="!showCart && !showDetails"
+  (addToCart)="addToCart($event)"
+  (goToDetails)="goToDetails($event)"
+></app-product-list>
+<app-cart
+  *ngIf="showCart && !showDetails"
+  [cartProducts]="cartProducts"
+  (done)="showCart = false"
+></app-cart>
+
+<app-product-item-detail
+  *ngIf="showDetails && !showCart"
+  [product]="productDetails"
+  (addToCart)="addToCart($event)"
+>
+</app-product-item-detail>
